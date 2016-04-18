@@ -16,25 +16,20 @@
 		</div>
 
 
-		<div>
-			
-			<p>published: 17.04.2016, 18:24</p>
+		{% for post in posts %}
 
-			<h2><a href="">Mogli</a></h2>
+			<div>
+				
+				<p>published: {{ post.published_date }}</p>
 
-			<p>Der Mann mit dem roten Hösli!</p>
+				<h1><a href="">{{ post.title }}</a></h1>
 
-		</div>
+				<p>{{ post.text|linebreaks }}</p>
 
-		<div>
-			
-			<p>published: 17.04.2016, 18:24</p>
+			</div>
 
-			<h2><a href="">Balu</a></h2>
-			
-			<p>Der Mann, der's mal mit Gemütlichkeit probiert!</p>
 
-		</div>
+		{% endfor %}
 
 
 	</body>
