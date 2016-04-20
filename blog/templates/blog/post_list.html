@@ -1,38 +1,25 @@
+{% extends 'blog/base.html' %}
 
-<html>
+{% block content %}
 
-	<head>
-		
-		<title>Sibic's blog</title>
+	{% for post in posts %}
 
-	</head>
+	    <div class="post">
 
-	<body>
-		
-		<div>
+	        <div class="date">
 
-			<h1> <a href="">Sibic's Djanglebook</a></h1>
-			
-		</div>
+	            <p>published: {{ post.published_date }}</p>
 
+	         </div>
 
-		{% for post in posts %}
+	        <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
 
-			<div>
-				
-				<p>published: {{ post.published_date }}</p>
+	        <p>{{ post.text|linebreaks }}</p>
 
-				<h1><a href="">{{ post.title }}</a></h1>
+	    </div>
 
-				<p>{{ post.text|linebreaks }}</p>
+	{% endfor %}
 
-			</div>
+{% endblock %}
 
-
-		{% endfor %}
-
-
-	</body>
-
-</html>
 
